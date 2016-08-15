@@ -1,0 +1,86 @@
+<resources>
+    <!--侧滑菜单头部高度-->
+    <dimen name="nav_header_height">337dp</dimen>
+    <!--水平边距-->
+    <dimen name="horizontal_margin">34dp</dimen>
+    <!--垂直边距-->
+    <dimen name="vertical_margin">34dp</dimen>
+
+    <dimen name="width">263dp</dimen>
+
+    <!-- UI统一设置 -->
+    <!--字体规格-->
+    <dimen name="text_large">63sp</dimen>
+    <dimen name="text_max">38sp</dimen>
+    <dimen name="text_med">32sp</dimen>
+    <dimen name="text_min">27sp</dimen>
+    <!--间距规格-->
+    <dimen name="margin_min">11dp</dimen>
+    <dimen name="margin_med">21dp</dimen>
+    <dimen name="margin_max">32dp</dimen>
+    <dimen name="margin_large">63dp</dimen>
+    <dimen name="margin_large_more">74dp</dimen>
+
+    <!-- 字体大小 -->
+    <dimen name="text_size_32">67sp</dimen>
+    <dimen name="text_size_31">65sp</dimen>
+    <dimen name="text_size_30">63sp</dimen>
+    <dimen name="text_size_29">61sp</dimen>
+    <dimen name="text_size_28">59sp</dimen>
+    <dimen name="text_size_27">57sp</dimen>
+    <dimen name="text_size_26">55sp</dimen>
+    <dimen name="text_size_25">53sp</dimen>
+    <dimen name="text_size_24">51sp</dimen>
+    <dimen name="text_size_23">48sp</dimen>
+    <dimen name="text_size_22">46sp</dimen>
+    <dimen name="text_size_21">44sp</dimen>
+    <dimen name="text_size_20">42sp</dimen>
+    <dimen name="text_size_19">40sp</dimen>
+    <dimen name="text_size_18">38sp</dimen>
+    <dimen name="text_size_17">36sp</dimen>
+    <dimen name="text_size_16">34sp</dimen>
+    <dimen name="text_size_15">32sp</dimen>
+    <dimen name="text_size_14">29sp</dimen>
+    <dimen name="text_size_13">27sp</dimen>
+    <dimen name="text_size_12">25sp</dimen>
+    <dimen name="text_size_11">23sp</dimen>
+    <dimen name="text_size_10">21sp</dimen>
+    <dimen name="text_size_9">19sp</dimen>
+    <dimen name="text_size_8">17sp</dimen>
+    <dimen name="text_size_7">15sp</dimen>
+    <dimen name="space_30">63dp</dimen>
+    <dimen name="space_29">61dp</dimen>
+    <dimen name="space_28">59dp</dimen>
+    <dimen name="space_27">57dp</dimen>
+    <dimen name="space_26">55dp</dimen>
+    <dimen name="space_25">53dp</dimen>
+    <dimen name="space_24">51dp</dimen>
+    <dimen name="space_23">48dp</dimen>
+    <dimen name="space_22">46dp</dimen>
+    <dimen name="space_21">44dp</dimen>
+    <dimen name="space_20">42dp</dimen>
+    <dimen name="space_19">40dp</dimen>
+    <dimen name="space_18">38dp</dimen>
+    <dimen name="space_17">36dp</dimen>
+    <dimen name="space_16">34dp</dimen>
+    <dimen name="space_15">32dp</dimen>
+    <dimen name="space_14">29dp</dimen>
+    <dimen name="space_13">27dp</dimen>
+    <dimen name="space_12">25dp</dimen>
+    <dimen name="space_11">23dp</dimen>
+    <dimen name="space_10">21dp</dimen>
+    <dimen name="space_9">19dp</dimen>
+    <dimen name="space_8">17dp</dimen>
+    <dimen name="space_7">15dp</dimen>
+    <dimen name="space_6">13dp</dimen>
+    <dimen name="space_5">11dp</dimen>
+    <dimen name="space_4">8dp</dimen>
+    <dimen name="space_3">0dp</dimen>
+    <dimen name="space_2">4dp</dimen>
+    <dimen name="space_1">0dp</dimen>
+
+    <!--文章详细页面图片显示区域高度-->
+    <dimen name="detail_image_height">539dp</dimen>
+
+</resources>
+
