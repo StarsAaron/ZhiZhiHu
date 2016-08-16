@@ -14,7 +14,7 @@
         <item name="android:windowBackground">@color/sr_window_background</item>
     </style>
 
-    <!--AppBarLayout主题-->
+    <!--AppBarLayout主题,防止图标颜色不一致显示-->
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <!--Toolbar主题-->
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>

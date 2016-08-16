@@ -12,15 +12,17 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/coll_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_image_height"
             android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.NoActionBar.AppBarOverlay"
             app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="96dp"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarTitleStyle.About"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <FrameLayout
                 android:layout_width="match_parent"

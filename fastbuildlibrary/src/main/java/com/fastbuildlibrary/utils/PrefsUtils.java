@@ -3,6 +3,7 @@ package com.fastbuildlibrary.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.fastbuildlibrary.commom.FBLApplication;
 import com.fastbuildlibrary.config.FBLBaseConstant;
 
 import java.io.ByteArrayInputStream;
@@ -18,27 +19,35 @@ import java.util.Map;
  * SharedPreferences 简化工具类
  */
 public class PrefsUtils {
-    private PrefsUtils() {
-        throw new UnsupportedOperationException("cannot be instantiated");
-    }
-
     /**
      * SharedPreferences文件名
      */
-    public static final String FILE_NAME = FBLBaseConstant.PREFS_FILE_NAME;
+    private String FILE_NAME = "share_data";
+    private SharedPreferences sp;
+    private SharedPreferences.Editor editor;
+    private static PrefsUtils prefsUtils;
+
+    private PrefsUtils(Context context, String fileName) {
+        this.FILE_NAME = fileName;
+        sp = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        editor = sp.edit();
+    }
+
+    public static PrefsUtils getInstance(){
+        if(prefsUtils == null){
+            prefsUtils = new PrefsUtils(FBLApplication.getInstance().getApplicationContext()
+                    , FBLBaseConstant.PREFS_FILE_NAME);
+        }
+        return prefsUtils;
+    }
 
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      *
-     * @param context
      * @param key
      * @param object
      */
-    public static void put(Context context, String key, Object object) {
-
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-
+    public synchronized void put(String key, Object object) {
         if (object instanceof String) {
             editor.putString(key, (String) object);
         } else if (object instanceof Integer) {
@@ -59,15 +68,11 @@ public class PrefsUtils {
     /**
      * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值
      *
-     * @param context
      * @param key
      * @param defaultObject
      * @return
      */
-    public static Object get(Context context, String key, Object defaultObject) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
-
+    public Object get(String key, Object defaultObject) {
         if (defaultObject instanceof String) {
             return sp.getString(key, (String) defaultObject);
         } else if (defaultObject instanceof Integer) {
@@ -86,48 +91,36 @@ public class PrefsUtils {
     /**
      * 移除某个key值已经对应的值
      *
-     * @param context
      * @param key
      */
-    public static void remove(Context context, String key) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
+    public synchronized void remove(String key) {
         editor.remove(key);
         SharedPreferencesCompat.apply(editor);
     }
 
     /**
      * 清除所有数据
-     *
-     * @param context
      */
-    public static void clear(Context context) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
+    public synchronized void clear() {
         editor.clear();
         SharedPreferencesCompat.apply(editor);
     }
 
     /**
      * 查询某个key是否已经存在
-     *
-     * @param context
      * @param key
      * @return
      */
-    public static boolean contains(Context context, String key) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
+    public boolean contains(String key) {
         return sp.contains(key);
     }
 
     /**
      * 返回所有的键值对
      *
-     * @param context
      * @return
      */
-    public static Map<String, ?> getAll(Context context) {
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,Context.MODE_PRIVATE);
+    public Map<String, ?> getAll() {
         return sp.getAll();
     }
 
@@ -172,11 +165,10 @@ public class PrefsUtils {
 
     /**
      * 保存对象
-     * @param context
      * @param key
      * @param value
      */
-    public synchronized void saveObject(Context context,String key, Object value) {
+    public synchronized void saveObject(String key, Object value) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -185,8 +177,6 @@ public class PrefsUtils {
             serStr = java.net.URLEncoder.encode(serStr, "UTF-8");
             objectOutputStream.close();
             byteArrayOutputStream.close();
-            SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
             editor.putString(key, serStr);
             editor.commit();
         } catch (IOException e) {
@@ -196,13 +186,11 @@ public class PrefsUtils {
 
     /**
      * 获取对象
-     * @param context
      * @param key
      * @return
      */
-    public synchronized Object getObject(Context context,String key) {
+    public synchronized Object getObject(String key) {
         Object object = new Object();
-        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         try {
             String redStr = java.net.URLDecoder.decode(sp.getString(key,""), "UTF-8");
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(

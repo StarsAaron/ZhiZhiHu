@@ -1,7 +1,7 @@
 package com.fastbuildlibrary.config;
 
 import com.fastbuildlibrary.dialog.Effectstype;
-import com.fastbuildlibrary.ui.swipebacklayout.SwipeBackLayout;
+import com.fastbuildlibrary.widget.swipebacklayout.SwipeBackLayout;
 
 /**
  * 常量

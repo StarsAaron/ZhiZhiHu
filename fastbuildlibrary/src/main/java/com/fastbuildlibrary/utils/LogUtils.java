@@ -2,18 +2,17 @@ package com.fastbuildlibrary.utils;
 
 import android.util.Log;
 
-import com.fastbuildlibrary.config.FBLBaseConstant;
-
 /**
  * Logcat统一管理类
  */
 public class LogUtils {
-    private static final String TAG = "LogUtils";
-    private static boolean isDebug = FBLBaseConstant.SHOW_LOG;// 是否需要打印bug，可以在application的onCreate函数里面初始化
 
     private LogUtils() {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
+
+    public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化
+    private static final String TAG = "LogUtils";
 
     // 下面四个是默认tag的函数
     public static void i(String msg) {

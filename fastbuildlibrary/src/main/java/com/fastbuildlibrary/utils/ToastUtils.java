@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.fastbuildlibrary.config.FBLBaseConstant;
-
 /**
  * Toast统一管理类
  */
@@ -15,7 +13,7 @@ public class ToastUtils {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
-    public static boolean isShow = FBLBaseConstant.SHOW_TOAST; //控制是否显示的标识
+    public static boolean isShow = true; //控制是否显示的标识
 
     /**
      * 短时间显示Toast
