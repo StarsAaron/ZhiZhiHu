@@ -53,7 +53,7 @@ public class MainActivity extends FBLBaseActivity
         if(savedInstanceState != null){
             currentTabIndex = savedInstanceState.getInt(CURR_INDEX);
         }
-        mToolbar.setLogo(R.drawable.ic_menu_gallery);
+        mToolbar.setLogo(R.mipmap.ic_zizha);
         setSupportActionBar(mToolbar);
 
         mActionBar = getSupportActionBar();

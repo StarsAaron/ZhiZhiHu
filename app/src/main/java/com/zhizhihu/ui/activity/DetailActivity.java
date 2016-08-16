@@ -199,7 +199,7 @@ public class DetailActivity extends FBLSwipeBackBaseActivity {
             case R.id.menu_action_parise:
                 //执行点赞动画
                 AnimationUtils.loadAnimation(DetailActivity.this, R.anim.anim_small);
-                itemParise.setIcon(R.mipmap.praised);
+                itemParise.setIcon(R.mipmap.ic_detail_praise);
                 return true;
             default:
                 break;
